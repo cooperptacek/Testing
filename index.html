@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pips — NYT-style</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <h1>Pips</h1>
+        <div class="top-actions">
+          <button id="daily-btn" class="active">Daily</button>
+          <button id="endless-btn">Endless</button>
+          <button id="new-puzzle">New</button>
+        </div>
+      </header>
+
+      <section class="meta">
+        <p id="puzzle-id">Puzzle #—</p>
+        <p>Time <span id="timer">00:00</span></p>
+        <p>Mistakes <span id="mistakes">0</span></p>
+        <p>Streak <span id="streak">0</span></p>
+      </section>
+
+      <section class="controls">
+        <label>
+          Seed
+          <input id="seed-input" type="number" min="1" step="1" />
+        </label>
+        <button id="load-seed">Load Seed</button>
+        <button id="check-board">Check</button>
+        <button id="clear-board">Clear</button>
+      </section>
+
+      <section class="game" aria-live="polite">
+        <div class="clues clues-top" id="top-clues"></div>
+        <div class="board-row">
+          <div class="clues clues-left" id="left-clues"></div>
+          <div class="board" id="board"></div>
+        </div>
+      </section>
+
+      <section class="status">
+        <p id="message">Fill cells to satisfy all row and column clues.</p>
+      </section>
+
+      <details>
+        <summary>How to play</summary>
+        <ul>
+          <li>Click/tap a square: empty → pip → X.</li>
+          <li>Numbers show contiguous runs of pips in each row and column.</li>
+          <li>Complete all runs to solve. Daily gives one puzzle, Endless gives unlimited.</li>
+        </ul>
+      </details>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
