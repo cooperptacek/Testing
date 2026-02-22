@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Pips</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Infinite Pips</h1>
+        <p class="subtitle">A daily-style dot puzzle with unlimited generated boards.</p>
+      </header>
+
+      <section class="controls">
+        <button id="new-puzzle">New Puzzle</button>
+        <label>
+          Seed
+          <input id="seed-input" type="number" min="1" step="1" />
+        </label>
+        <button id="load-seed">Load Seed</button>
+      </section>
+
+      <section class="game" aria-live="polite">
+        <div class="clues clues-top" id="top-clues"></div>
+        <div class="board-row">
+          <div class="clues clues-left" id="left-clues"></div>
+          <div class="board" id="board"></div>
+        </div>
+      </section>
+
+      <section class="status">
+        <p id="message">Fill cells so each row/column matches the clue count.</p>
+        <p><strong>Puzzles solved:</strong> <span id="solved-count">0</span></p>
+      </section>
+
+      <details>
+        <summary>How to play</summary>
+        <ul>
+          <li>Click a square to cycle: empty → pip → X.</li>
+          <li>Pips are the cells you think are filled.</li>
+          <li>Match every row and column clue to win.</li>
+          <li>Generate unlimited puzzles with <em>New Puzzle</em>.</li>
+        </ul>
+      </details>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

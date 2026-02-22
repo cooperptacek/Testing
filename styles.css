@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light dark;
+  --bg: #faf8f2;
+  --panel: #ffffff;
+  --text: #1d1b16;
+  --muted: #6a6353;
+  --accent: #e88430;
+  --grid: #d8cfbf;
+  --pip: #1d1b16;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15130f;
+    --panel: #211d16;
+    --text: #f6f2e8;
+    --muted: #c4b8a2;
+    --accent: #ffac64;
+    --grid: #4e4637;
+    --pip: #f6f2e8;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #f6efe0 0, var(--bg) 45%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.app {
+  width: min(680px, 95vw);
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 1.2rem 1.2rem 1.6rem;
+  box-shadow: 0 18px 40px rgb(0 0 0 / 0.14);
+}
+
+h1 {
+  margin: 0;
+}
+.subtitle {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.controls {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button,
+input {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid var(--grid);
+  padding: 0.45rem 0.7rem;
+  background: var(--panel);
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+}
+button:hover {
+  border-color: var(--accent);
+}
+
+.game {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: 36px auto;
+  gap: 0.4rem;
+}
+
+.clues-top,
+.clues-left {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.clues-top {
+  margin-left: 40px;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.clues-left {
+  grid-template-rows: repeat(6, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in oklab, var(--panel), var(--bg) 45%);
+  cursor: pointer;
+  user-select: none;
+}
+
+.cell.state-fill::after {
+  content: "";
+  width: 42%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--pip);
+}
+
+.cell.state-block::after {
+  content: "✕";
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.status {
+  margin-top: 0.8rem;
+}
+
+#message {
+  margin: 0.4rem 0;
+  font-weight: 600;
+}
+
+details {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
